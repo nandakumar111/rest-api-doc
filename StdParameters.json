@@ -1,0 +1,92 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "networkInterfaceName": {
+      "value": "stdserial120"
+    },
+    "networkSecurityGroupName": {
+      "value": "stdserial-nsg"
+    },
+    "networkSecurityGroupRules": {
+      "value": [
+        {
+          "name": "SSH",
+          "properties": {
+            "priority": 300,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "22"
+          }
+        }
+      ]
+    },
+    "subnetName": {
+      "value": "default"
+    },
+    "virtualNetworkName": {
+      "value": "MRaaS-vnet"
+    },
+    "addressPrefixes": {
+      "value": [
+        "10.0.1.0/24"
+      ]
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "default",
+          "properties": {
+            "addressPrefix": "10.0.1.0/24"
+          }
+        }
+      ]
+    },
+    "publicIpAddressName": {
+      "value": "stdserial-ip"
+    },
+    "publicIpAddressType": {
+      "value": "Dynamic"
+    },
+    "publicIpAddressSku": {
+      "value": "Basic"
+    },
+    "virtualMachineName": {
+      "value": "stdserial"
+    },
+    "virtualMachineRG": {
+      "value": "MRaaS"
+    },
+    "osDiskType": {
+      "value": "StandardSSD_LRS"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "adminUsername": {
+      "value": "research"
+    },
+    "adminPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhJyTS+cDNDSgdn0nQOzMq5zdIh1bub3xh8gKacBGAQVINoDIubYB7ELC9n5VbvGlmO0G1MtOXfBj3ALaPPvxB6nRS17Z1XjF6CyN5QkSeh5Wg0MZz+gYhrBiubNh1RelAhfF9qd0Fk9K4C/KAN+wFVpltLQ4PYvTCG+rn9LvWxJ1vLyFrNIfcM5srXNMhq93Fp2pzDdXDz/0lHvVntRnHudMTVK26A6QgOblJFQIMYHUAXq1rnz3xDVqmVfvGPCbTAXUjGiHeNAuEiqKWkPvKNNZ84jQMW0aEPicywZ3r8JHiBWSRcRzChx1jdAcKJpwkqgTKWGyaseV7H/P2yLB7 ilumb@cumulus"
+    },
+    "diagnosticsStorageAccountName": {
+      "value": "mraasdiag"
+    },
+    "diagnosticsStorageAccountId": {
+      "value": "Microsoft.Storage/storageAccounts/mraasdiag"
+    },
+    "diagnosticsStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "diagnosticsStorageAccountKind": {
+      "value": "Storage"
+    }
+  }
+}
